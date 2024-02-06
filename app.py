@@ -1,6 +1,6 @@
 from flask import Flask
 
-from general import general_bp
+from general.general import general_bp
 
 app = Flask(__name__)
 
