@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from API.api import *
 
 products_bp = Blueprint('products_bp', __name__,
     template_folder='templates',
@@ -6,4 +7,6 @@ products_bp = Blueprint('products_bp', __name__,
 
 @products_bp.route('/products')
 def index():
-    return render_template('products/products.html')
+    data = GetAllProducts().json()
+    #l = len(data)
+    return render_template('products/products.html', products = data)
