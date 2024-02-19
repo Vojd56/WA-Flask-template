@@ -7,6 +7,6 @@ products_bp = Blueprint('products_bp', __name__,
 
 @products_bp.route('/products')
 def index():
-    r = ReadAllProducts()
-    l = len(r)
-    return render_template('products/products.html',length = l, products = r)
+    data = GetAllProducts().json()
+    #l = len(data)
+    return render_template('products/products.html', products = data)

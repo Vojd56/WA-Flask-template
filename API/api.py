@@ -1,20 +1,20 @@
 from flask import Blueprint, render_template
 import requests
 import json
+
 api_bp = Blueprint('api_bp', __name__,
     template_folder='templates',
     static_folder='static')
 
 URL_API = "https://fakestoreapi.com"
 
-def ReadAllProducts():
-     
+#Načte  seznam produktů z API v JSON formátu a vrátí jej jako pole.
+def GetAllProducts():   
+    
     request = requests.get(f"{URL_API}/products")
     
-    result = json.loads(request.text)
-    return result
-
-#def GetAllProducts():
-#    return json.load(ReadAllProducts())
+   # return json.loads(request.text)
+    return request
+ 
     
 
